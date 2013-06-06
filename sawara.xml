@@ -1,27 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
 
-  <remote  name="aosp"
-           fetch="https://android.googlesource.com/" />
-  <remote name="b2gmozilla"
-          fetch="https://git.mozilla.org/b2g" />
-  <remote name="b2g"
-           fetch="git://github.com/mozilla-b2g/" />
-  <remote name="mozilla"
-	  fetch="git://github.com/mozilla/" />
-  <remote name="caf"
-          fetch="git://codeaurora.org/" />
-  <remote name="mozillaorg"
-           fetch="https://git.mozilla.org/releases" />
-  <remote name="tdz"
-           fetch="git://github.com/tdz/" />
-  <default revision="ics_chocolate_rb4.2"
-           remote="caf"
-           sync-j="4" />
+  <remote fetch="https://android.googlesource.com/" name="aosp" />
+  <remote fetch="https://git.mozilla.org/b2g" name="b2gmozilla" />
+  <remote fetch="https://git.mozilla.org/releases" name="mozillaorg" />
+  <remote fetch="git://github.com/mozilla-b2g/" name="b2g" />
+  <remote fetch="git://github.com/mozilla/" name="mozilla" />
+  <remote fetch="git://codeaurora.org/" name="caf" />
+  <remote fetch="git://github.com/tdz/" name="tdz" />
 
+  <default revision="refs/tags/android-4.2.2_r1" remote="caf" sync-j="4" />
 
   <!-- Gonk specific things and forks -->
-  <project path="build" name="platform_build" remote="b2g" revision="master">
+  <project path="build" name="platform_build" remote="b2g" revision="b2g-4.2.2_r1">
     <copyfile src="core/root.mk" dest="Makefile" />
   </project>
   <project path="dalvik" name="fake-dalvik" remote="b2g" revision="master" />
@@ -40,15 +31,17 @@
   <project path="device/common" name="device/common" />
   <project path="device/sample" name="device/sample" />
   <project path="external/apriori" name="platform_external_apriori" remote="b2g" revision="master" />
-  <project path="external/bluetooth/bluez" name="platform/external/bluetooth/bluez" />
-  <project path="external/bluetooth/glib" name="platform/external/bluetooth/glib" />
-  <project path="external/bluetooth/hcidump" name="platform/external/bluetooth/hcidump" />
+  <project path="external/bluetooth/bluez" name="platform/external/bluetooth/bluez" revision="jb_chocolate_rb4.1" />
+  <project path="external/bluetooth/glib" name="platform/external/bluetooth/glib" revision="jb_chocolate_rb4.1" />
+  <project path="external/bluetooth/hcidump" name="platform/external/bluetooth/hcidump" revision="jb_chocolate_rb4.1" />
   <project path="external/bsdiff" name="platform/external/bsdiff" />
-  <project path="external/bson" name="platform/external/bson" revision="ad6fc5dbb5f4369e08f7543b1517c225281900c0" />
-  <project path="external/bzip2" name="platform/external/bzip2" />
-  <project path="external/curl" name="platform/external/curl" />
+  <project path="external/bson" name="platform/external/bson" revision="jb_chocolate_rb4.1" />
+  <project path="external/bzip2" name="platform/external/bzip2" revision="refs/tags/android-4.2.2_r1" />
+  <project path="external/clang" name="platform/external/clang" revision="jb_chocolate_rb4.1" />
+  <project path="external/compiler-rt" name="platform/external/compiler-rt" />
+  <project path="external/curl" name="platform/external/curl" revision="jb_chocolate_rb4.1" />
   <project path="external/dbus" name="platform/external/dbus" />
-  <project path="external/dhcpcd" name="platform/external/dhcpcd" />
+  <project path="external/dhcpcd" name="platform/external/dhcpcd" revision="refs/tags/android-4.2.2_r1" />
   <project path="external/dnsmasq" name="platform/external/dnsmasq" />
   <project path="external/e2fsprogs" name="platform/external/e2fsprogs" />
   <project path="external/elfcopy" name="platform_external_elfcopy" remote="b2g" revision="master" />
@@ -60,7 +53,8 @@
   <project path="external/giflib" name="platform/external/giflib" />
   <project path="external/gtest" name="platform/external/gtest" revision="aosp-new/master" />
   <project path="external/harfbuzz" name="platform/external/harfbuzz" />
-  <project path="external/icu4c" name="platform/external/icu4c" />
+  <project path="external/icu4c" name="platform/external/icu4c" revision="jb_chocolate_rb4.1" />
+<!--  <project path="external/junit" name="platform/external/junit" /> -->
   <project path="external/iptables" name="platform/external/iptables" />
   <project path="external/iw" name="iw" remote="tdz" revision="ics_chocolate_rb4.2" />
   <project path="external/jpeg" name="platform/external/jpeg" />
@@ -72,11 +66,11 @@
   <project path="external/libpng" name="platform/external/libpng" />
   <project path="external/libvpx" name="platform/external/libvpx" />
   <project path="external/libxml2" name="platform/external/libxml2" />
-  <project path="external/libxslt" name="platform/external/libxslt" upstream="refs/tags/android-4.0.4_r2.1" />
-  <project path="external/llvm" name="platform/external/llvm" />
+  <project path="external/libxslt" name="platform/external/libxslt" />
+  <project path="external/llvm" name="platform/external/llvm" revision="jb_chocolate_rb4.1" />
   <project path="external/mksh" name="platform/external/mksh" />
   <project path="external/opensans" name="platform_external_opensans" remote="b2g" revision="master" />
-  <project path="external/openssl" name="platform/external/openssl" />
+  <project path="external/openssl" name="platform/external/openssl" revision="refs/tags/android-4.2.2_r1" />
   <project path="external/protobuf" name="platform/external/protobuf" />
   <project path="external/protobuf-c" name="platform_external_protobuf_c" remote="tdz" revision="ics_chocolate_rb4.2" />
   <project path="external/safe-iop" name="platform/external/safe-iop" />
@@ -85,7 +79,7 @@
   <project path="external/sonivox" name="platform/external/sonivox" />
   <project path="external/speex" name="platform/external/speex" />
   <project path="external/sqlite" name="platform/external/sqlite" revision="fb30e613139b8836fdc8e81e166cf3a76e5fa17f"/>
-  <project path="external/stlport" name="platform/external/stlport" />
+  <project path="external/stlport" name="platform/external/stlport" revision="refs/tags/android-4.2.2_r1" />
   <project path="external/strace" name="platform/external/strace" />
   <project path="external/tagsoup" name="platform/external/tagsoup" />
   <project path="external/tinyalsa" name="platform/external/tinyalsa" />
@@ -93,18 +87,25 @@
   <project path="external/unbootimg" name="unbootimg" remote="b2g" revision="master" />
   <project path="external/webp" name="platform/external/webp" />
   <project path="external/webrtc" name="platform/external/webrtc" />
-  <project path="external/wpa_supplicant" name="platform/external/wpa_supplicant" />
-  <project path="external/hostap" name="platform/external/hostap" />
-  <project path="external/zlib" name="platform/external/zlib" />
+  <project path="external/wpa_supplicant_8" name="platform/external/wpa_supplicant_8" />
+<!--  <project path="external/hostap" name="platform/external/hostap" /> -->
+  <project path="external/zlib" name="platform/external/zlib" revision="refs/tags/android-4.2.2_r1" />
   <project path="external/yaffs2" name="platform/external/yaffs2" />
-  <project path="frameworks/base" name="platform/frameworks/base" />
+  <project path="frameworks/base" name="platform/frameworks/base" revision="refs/tags/android-4.2.2_r1" />
   <project path="frameworks/opt/emoji" name="platform/frameworks/opt/emoji" />
+  <project path="frameworks/native" name="platform/frameworks/native" />
   <project path="frameworks/support" name="platform/frameworks/support" />
   <project path="hardware/libhardware" name="platform/hardware/libhardware" />
   <project path="hardware/libhardware_legacy" name="platform/hardware/libhardware_legacy" />
   <project path="libcore" name="platform/libcore" />
   <project path="ndk" name="platform/ndk" />
-  <project path="prebuilt" name="platform/prebuilt" />
+  <project path="prebuilts/clang/linux-x86/3.1" name="platform/prebuilts/clang/linux-x86/3.1" groups="linux" revision="refs/tags/android-4.2.2_r1" />
+  <project path="prebuilts/clang/linux-x86/3.2" name="platform/prebuilts/clang/linux-x86/3.2" groups="linux" revision="refs/tags/android-4.2.2_r1" />
+  <project path="prebuilts/gcc/linux-x86/arm/arm-eabi-4.6" name="platform/prebuilts/gcc/linux-x86/arm/arm-eabi-4.6" groups="linux,arm" />
+  <project path="prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.6" name="platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.6" groups="linux,arm" />
+  <project path="prebuilts/gcc/linux-x86/host/i686-linux-glibc2.7-4.6" name="platform/prebuilts/gcc/linux-x86/host/i686-linux-glibc2.7-4.6" groups="linux" />
+  <project path="prebuilts/gcc/linux-x86/host/x86_64-linux-glibc2.7-4.6" name="platform/prebuilts/gcc/linux-x86/host/x86_64-linux-glibc2.7-4.6" groups="linux" />
+  <project path="prebuilts/ndk" name="platform/prebuilts/ndk" />
   <project path="system/bluetooth" name="platform/system/bluetooth" />
   <project path="system/core" name="platform/system/core" />
   <project path="system/extras" name="platform/system/extras" />
@@ -113,15 +114,16 @@
   <project path="system/vold" name="platform/system/vold" />
 
   <!-- Sawara-specific things -->
-  <project path="device/qcom/common" name="device/qcom/common" />
-  <project path="device/qcom/msm8960" name="platform/vendor/qcom/msm8960" revision="d6ed51b81974f88cee942e5b988c06d64d203e6b" />
+  <project path="device/qcom/common" name="device/qcom/common" revision="jb_chocolate_rb4.1" />
+  <project path="device/qcom/msm8960" name="platform/vendor/qcom/msm8960" revision="jb_chocolate_rb4.1" />
   <project path="device/qcom/sawara" name="android-device-sawara" remote="tdz" revision="master" />
-  <project path="hardware/qcom/audio" name="platform/hardware/qcom/audio" revision="jb_chocolate_rb4.1" />
+  <project path="hardware/qcom/audio" name="platform/hardware/qcom/audio" />
   <project path="hardware/qcom/camera" name="platform/hardware/qcom/camera" />
-  <project path="hardware/qcom/display" name="hardware_qcom_display" remote="tdz" />
+  <project path="hardware/qcom/display" name="platform/hardware/qcom/display" />
+<!--  <project path="hardware/qcom/display" name="hardware_qcom_display" remote="tdz" /> -->
   <project path="hardware/qcom/gps" name="platform/hardware/qcom/gps" />
   <project path="hardware/qcom/media" name="platform/hardware/qcom/media" />
-  <project path="hardware/ril" name="platform/hardware/ril" remote="caf" revision="fe9a3f63922143b57e79ed570bab2328df8c83a5"/>
+  <project path="hardware/ril" name="platform/hardware/ril" revision="jb_chocolate_rb4.1" />
   <project path="kernel" name="codeaurora_kernel_msm" remote="b2g" revision="master" />
-  <project path="vendor/qcom/opensource/omx/mm-core" name="platform/vendor/qcom-opensource/omx/mm-core" />
+<!--  <project path="vendor/qcom/opensource/omx/mm-core" name="platform/vendor/qcom-opensource/omx/mm-core" /> -->
 </manifest>
